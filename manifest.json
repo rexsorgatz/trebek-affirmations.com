@@ -1,0 +1,24 @@
+{
+  "name": "The Trebek Affirmation Soundboard",
+  "short_name": "Trebek Sounds",
+  "description": "A homage to the great Alex Trebek. Use it when you need a few words of encouragement.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#060ce9",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "jeopardy-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "jeopardy.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["entertainment", "games"]
+}

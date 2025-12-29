@@ -8,353 +8,528 @@
 
 <!-- "We are all experts in our own little niches." —Alex Trebek -->
 
-<link rel="dns-prefetch" href="//db.onlinewebfonts.com" />
-<link rel="dns-prefetch" href="//cdn.rawgit.com" />
+<link rel="preconnect" href="https://ajax.googleapis.com" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
 <link rel="dns-prefetch" href="//ajax.googleapis.com" />
-<link rel="dns-prefetch" href="//www.googletagmanager.com" />
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
-<script src="https://www.tvinsider.com/wp-content/themes/tv/trebek-affirmations/jquery.lightbox_me.js"></script>
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
 
 <meta name="title" content="The Trebek Affirmation Soundboard: An Homage to Jeopardy" />
-<meta name="description" content="This soundboard is an homeage to the great Alex Trebek. Use it when you need a few words of encouragement." />
+<meta name="description" content="This soundboard is a homage to the great Alex Trebek. Use it when you need a few words of encouragement." />
 <meta name="keywords" content="jeopardy, alex trebek, soundboard, sound, sounds, memes, audio, trebek, affirmations, encouragement, gameshow, contestant, television, host, quiz, what is" />
 <meta name="generator" content="The mighty hands of Rex Sorgatz" />
+<meta name="theme-color" content="#060ce9" />
 
 <meta property="og:site_name" content="The Trebek Affirmation Soundboard" />
 <meta property="og:title" content="The Trebek Affirmation Soundboard" />
-<meta property="og:description" content="This soundboard is an homeage to the great Alex Trebek. Use it when you need a few words of encouragement.">
+<meta property="og:description" content="This soundboard is a homage to the great Alex Trebek. Use it when you need a few words of encouragement." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.tvinsider.com/trebek-affirmation-soundboard/" />
-<meta property="og:image" content="https://www.tvinsider.com/wp-content/themes/tv/trebek-affirmations/jeopoardy-trebek-soundboard.jpg" />
+<meta property="og:url" content="https://trebek-affirmations.com/" />
+<meta property="og:image" content="https://trebek-affirmations.com/jeopardy-trebek-soundboard.jpg" />
 <meta property="og:image:alt" content="Alex Trebek Soundboard" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_US" />
-<meta property="twitter:card" content="summary" />
+<meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:site" content="@fimoculous" />
 <meta property="twitter:creator" content="@fimoculous" />
 <meta property="twitter:title" content="The Trebek Affirmation Soundboard" />
-<meta property="twitter:description" content="This soundboard is an homeage to the great Alex Trebek. Use it when you need a few words of encouragement." />
-<meta property="twitter:image" content="https://www.tvinsider.com/wp-content/themes/tv/trebek-affirmations/jeopoardy-trebek-soundboard.jpg" />
+<meta property="twitter:description" content="This soundboard is a homage to the great Alex Trebek. Use it when you need a few words of encouragement." />
+<meta property="twitter:image" content="https://trebek-affirmations.com/jeopardy-trebek-soundboard.jpg" />
 
-<link rel="canonical" href="https://www.tvinsider.com/trebek-affirmation-soundboard/" />
-<link rel="apple-touch-icon-precomposed" href="https://www.tvinsider.com/wp-content/themes/tv/trebek-affirmations/jeopardy-icon.png" />
-<link rel="icon" type="image/png" href="https://www.tvinsider.com/wp-content/themes/tv/trebek-affirmations/jeopardy-icon.png" />
-<link href="https://www.tvinsider.com/wp-content/themes/tv/trebek-affirmations/jeopardy.png" rel="icon" type="image/png" sizes="32x32" />
+<link rel="canonical" href="https://trebek-affirmations.com/" />
+<link rel="manifest" href="manifest.json" />
+
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "WebApplication",
+	"name": "The Trebek Affirmation Soundboard",
+	"description": "A soundboard homage to Alex Trebek featuring encouraging clips from Jeopardy. Use it when you need a few words of encouragement.",
+	"url": "https://trebek-affirmations.com/",
+	"applicationCategory": "Entertainment",
+	"operatingSystem": "Any",
+	"author": {
+		"@type": "Person",
+		"name": "Rex Sorgatz",
+		"url": "https://twitter.com/fimoculous/"
+	},
+	"about": {
+		"@type": "Person",
+		"name": "Alex Trebek",
+		"description": "Beloved host of Jeopardy!"
+	}
+}
+</script>
+<link rel="apple-touch-icon-precomposed" href="jeopardy-icon.png" />
+<link rel="icon" type="image/png" href="jeopardy-icon.png" />
+<link href="jeopardy.png" rel="icon" type="image/png" sizes="32x32" />
 
 <style>
+:root {
+	--color-jeopardy-blue: #060ce9;
+	--color-gold: #fad298;
+	--color-white: #fff;
+	--color-black: #000;
+	--color-text-shadow: #000;
+	--font-jeopardy: 'Swiss 911', Helvetica, Arial, Verdana, sans-serif;
+	--font-system: Helvetica, Arial, Verdana, sans-serif;
+	--tile-height: 12vh;
+	--tile-gap: 10px;
+	--border-radius: 8px;
+}
+
 @font-face {
 	font-family: "Swiss 911";
 	font-display: swap;
-	src: url("https://www.tvinsider.com/wp-content/themes/tv/trebek-affirmations/swiss-911-compressed-regular.otf") format("opentype");
+	src: url("swiss-911-compressed-regular.otf") format("opentype");
 }
-body {overflow-x:hidden;width:100%;background: url("https://www.tvinsider.com/wp-content/themes/tv/trebek-affirmations/jeopardy-bg.jpg") no-repeat center center fixed;background-position:center;background-repeat: no-repeat;background-size:cover;height:100%;font-family:'Swiss 911',Helvetica,Arial,Verdana,sans-serif;background-color:#000;text-transform:uppercase;}
-#board {text-align:center;margin:0 auto;width:90%;display:table;}
-.row {text-align:center;margin:0 auto;width:100%;}
-.q {color:#fad298;background-color:#060ce9;width:15.1%;float:left;text-align:center;margin:5px;border-radius:8px;box-sizing:border-box;font-size:4vw;text-shadow: 2px 2px #000;height:12vh;position:relative;}
-.cat .q {color:#fff;font-size:2.4vw;letter-spacing:1px;margin-bottom:10px;line-height:2.3vw;}
-.cat .q span {padding:0 10px 0 10px;box-sizing:border-box;}
-.q span {position:absolute; left: 50%; top: 50%;transform: translate(-50%, -50%);width:100%;}
-footer, header{text-align:center;margin:0 auto;margin-top:20px;}
-header h1 {color:#fff;font-size:58px;text-transform:uppercase;letter-spacing:2px;margin-bottom:5px;line-height:1;display:inline;}
-header h1 a {color:#fff;}
-footer h2 {opacity:0.6;color:#fff;border-radius:5px;font-size:13px;font-family:Helvetica,Arial,Verdana,sans-serif;text-transform:none;font-weight:normal!important;background-color:#000;display:inline;padding:5px 10px 5px 10px;}
-footer h2 a {color:#fff;text-decoration: underline;text-decoration-style:dotted;}
-header h3 {color:#fff;font-size:13px;text-transform:none;font-family:Helvetica,Arial,Verdana,sans-serif;margin-top:10px;font-weight:normal;letter-spacing:1px;margin-bottom: 20px;}
-h4,h5 {margin:0;padding:0;}
-.back span {color:#fff;font-size:1.8vw;letter-spacing:1px;line-height:1.5vw;text-shadow: 1px 1px #000;padding:0 10px 0 10px;box-sizing:border-box;letter-spacing:2px;}
-#trebek {position: absolute;right:0px;bottom:0px;opacity:0.4;transition: 0.3s;zoom:90%;}
-#trebek:hover {opacity:0.8;}
-#trebek:hover span {opacity:0.8;}
-#trebek span {color:#fff;background-color:#000;position: absolute;right:0px;bottom:0px;opacity:0;padding:3px;}
-#trebek span a {color:#fff;}
-.easter-egg{text-decoration: none;color:#fff;}
-a.easter-egg:hover {color:#f1f1f1;transition: 0.3s;}
-#startup {display: none; border-radius:12px; background-color: #060ce9; border: 10px solid #060ce9; width: 30%; color: #fff; padding: 20px;}
-#startup h2{font-size: 40px; letter-spacing: 1px; margin-top: 0;}
-#startup p{color:#fff;font-size:15px;text-transform:none;font-family:Helvetica,Arial,Verdana,sans-serif;margin-top:10px;font-weight:normal;letter-spacing:1px;margin-bottom: 20px;}
-@media(max-width:1200px){
-.q {height:8vh;} 
-#startup {width: 80%;}
-#startup div {display:none;}
+
+* {
+	box-sizing: border-box;
 }
-@media(max-width:700px){
-#board {width:100%;}
-.q {height:5.5vh;margin:2px;font-size:4.5vw;line-height:4.5vw;text-shadow: 1px 1px #000;}
-.cat .q {margin-bottom:5px;line-height:2.6vw;}
-header h1 {font-size:32px;letter-spacing:1px;}
-footer h2{font-size:10px;}
-header h3 {font-size:13px;letter-spacing:normal;padding-left:40px;padding-right:40px;}
-.back span {line-height:2.3vw;}
-.cat .q span {padding:0 3px 0 3px;}
-.back span {padding:0 3px 0 3px;font-size:2.1vw;letter-spacing:1px;}
-#trebek {zoom:50%;}
+
+body {
+	overflow-x: hidden;
+	width: 100%;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+	background: url("jeopardy-bg.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background-color: var(--color-black);
+	font-family: var(--font-jeopardy);
+	text-transform: uppercase;
+}
+
+#board {
+	text-align: center;
+	margin: 0 auto;
+	width: 90%;
+	max-width: 1400px;
+}
+
+.row {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: var(--tile-gap);
+	margin-bottom: var(--tile-gap);
+}
+
+.row a {
+	text-decoration: none;
+	display: block;
+	opacity: 0;
+	transition: transform 0.15s ease;
+}
+
+.row a:focus {
+	outline: none;
+}
+
+.row a:focus-visible {
+	outline: 3px solid var(--color-gold);
+	outline-offset: 2px;
+}
+
+.row a:active {
+	transform: scale(0.95);
+}
+
+.q {
+	color: var(--color-gold);
+	background-color: var(--color-jeopardy-blue);
+	text-align: center;
+	border-radius: var(--border-radius);
+	font-size: 4vw;
+	text-shadow: 2px 2px var(--color-text-shadow);
+	height: var(--tile-height);
+	position: relative;
+}
+
+.q:hover {
+	background-color: #1a1fff;
+}
+
+.cat .q {
+	color: var(--color-white);
+	font-size: 2.4vw;
+	letter-spacing: 1px;
+	line-height: 2.3vw;
+	cursor: default;
+}
+
+.cat .q:hover {
+	background-color: var(--color-jeopardy-blue);
+}
+
+.cat .q span {
+	padding: 0 10px;
+	box-sizing: border-box;
+}
+
+.q span {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+}
+
+header, footer {
+	text-align: center;
+	margin: 20px auto;
+}
+
+header h1 {
+	color: var(--color-white);
+	font-size: 58px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin: 0 0 5px 0;
+	line-height: 1;
+}
+
+header h1 a {
+	color: var(--color-white);
+	text-decoration: none;
+}
+
+header h1 a:focus {
+	outline: 2px solid var(--color-gold);
+	outline-offset: 2px;
+}
+
+header h3 {
+	color: var(--color-white);
+	font-size: 13px;
+	text-transform: none;
+	font-family: var(--font-system);
+	margin: 10px 0 20px 0;
+	font-weight: normal;
+	letter-spacing: 1px;
+	text-wrap: balance;
+}
+
+footer p {
+	opacity: 0.6;
+	color: var(--color-white);
+	border-radius: 5px;
+	font-size: 13px;
+	font-family: var(--font-system);
+	text-transform: none;
+	font-weight: normal;
+	background-color: var(--color-black);
+	display: inline;
+	padding: 5px 10px;
+	margin: 0;
+}
+
+footer p a {
+	color: var(--color-white);
+	text-decoration: underline;
+	text-decoration-style: dotted;
+}
+
+footer p a:focus {
+	outline: 2px solid var(--color-gold);
+	outline-offset: 2px;
+}
+
+h4, h5 {
+	margin: 0;
+	padding: 0;
+}
+
+.back span {
+	color: var(--color-white);
+	font-size: 1.8vw;
+	letter-spacing: 2px;
+	line-height: 1.5vw;
+	text-shadow: 1px 1px var(--color-text-shadow);
+	padding: 0 10px;
+}
+
+.easter-egg {
+	text-decoration: none;
+	color: var(--color-white);
+	transition: color 0.3s;
+}
+
+.easter-egg:hover {
+	color: #f1f1f1;
+}
+
+.easter-egg:focus {
+	outline: 2px solid var(--color-gold);
+	outline-offset: 2px;
+}
+
+.easter-egg:active {
+	opacity: 0.8;
+}
+
+@media (max-width: 1200px) {
+	:root {
+		--tile-height: 8vh;
+	}
+}
+
+@media (max-width: 700px) {
+	:root {
+		--tile-height: 5.5vh;
+		--tile-gap: 2px;
+	}
+
+	#board {
+		width: 100%;
+		padding: 0 2px;
+	}
+
+	.q {
+		font-size: 4.5vw;
+		line-height: 4.5vw;
+		text-shadow: 1px 1px var(--color-text-shadow);
+	}
+
+	.cat .q {
+		line-height: 2.6vw;
+	}
+
+	.cat .q span {
+		padding: 0 3px;
+	}
+
+	header h1 {
+		font-size: 32px;
+		letter-spacing: 1px;
+	}
+
+	header h3 {
+		letter-spacing: normal;
+		padding: 0 40px;
+	}
+
+	footer p {
+		font-size: 10px;
+	}
+
+	.back span {
+		font-size: 2.1vw;
+		line-height: 2.3vw;
+		letter-spacing: 1px;
+		padding: 0 3px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.row a {
+		transition: none;
+	}
+	.q {
+		transition: none;
+	}
 }
 </style>
-<script>
-var baseUrl = "https://www.tvinsider.com/wp-content/themes/tv/trebek-affirmations/";
-$(document).ready(function() {
-    $("#board a, .easter-egg").click(function() {
-        var obj = document.createElement("audio");
-        obj.src = baseUrl+$(this).data("audio-source");
-        obj.loop = false;
-        obj.play();
-        return false;
-    });
-	/*
-    $("#board a").dblclick(function() {
-		var file_path = '/audio/'+$(this).data("video-source");
-		var a = document.createElement('A');
-		a.href = file_path;
-		a.download = file_path.substr(file_path.lastIndexOf('/') + 1);
-		document.body.appendChild(a);
-		a.click();
-		document.body.removeChild(a);
-        return false;
-    });
-	*/
-	$(function(){
-	    $(".card-grid").flip({
-	      trigger: 'click',
-	      speed: '100',
-	    });
-	    $(".q").on('flip:done', flipBack).flip('true');
-	});
-	var timer_done = true;
-	function flipBack() {
-		if (timer_done == true) {
-			var timeoutID = setTimeout(function(){
-		        $(".card-grid").flip(false);
-		    }, 4000);
-			timer_done = false;
-	    } else {
-			timer_done = true;
-	    }
-	}
-	$( ".row a" ).each(function() {
-		this.style.opacity = 0;
-	});
-	var tiles = $(".row").children("a");
-	setTimeout(function() {
-		for(var i = 0; i < tiles.length; i++) {
-			delay = (Math.random() * 2) + 's';
-			tiles[i].style.WebKitTransitionDelay = tiles[i].style.transitionDelay = delay;
-			tiles[i].style.opacity = 1;
-		}
-	}, 0);
-	
-	/*
-	var windowsize = $(window).width();
-	if(windowsize>600) {
-		setTimeout( function(){ 
-		    $('#startup').lightbox_me();
-	  	}, 20000 );
-	}
-	*/
-});
-</script>
 </head>
 <body>
 <header>
-	<h1>The Trebek Affirmation <a class="easter-egg" data-audio-source="board-fill.mp3" href="#">Soundboard</a></h1>
-	<h3>for those distressing moments when you could use <a class="easter-egg" data-audio-source="daily-double.mp3" href="#">an audible nudge of encouragement</a></h3>
+	<h1>The Trebek Affirmation <a class="easter-egg" data-audio-source="board-fill.mp3" href="#" role="button" aria-label="Play board fill sound">Soundboard</a></h1>
+	<h3>for those distressing moments when you could use <a class="easter-egg" data-audio-source="daily-double.mp3" href="#" role="button" aria-label="Play daily double sound">an audible nudge of encouragement</a></h3>
 </header>
-<article id="board">
-	<div id="grid-containter">
-		<div class="row cat">
-			<div class="q"><span>Good<br/>Vibes</span></div>
-			<div class="q"><span>Contagious Enthusiasm</span></div>
-			<div class="q"><span>Everything Is Awesome</span></div>
-			<div class="q"><span>Even Wrong Is Right</span></div>
-			<div class="q"><span>Jubilant Potpourri</span></div>
-			<div class="q"><span>You Are Killing It</span></div>
+<article id="board" role="region" aria-label="Soundboard">
+	<div id="grid-container">
+		<div class="row cat" role="list" aria-label="Categories">
+			<div class="q" role="listitem"><span>Good<br/>Vibes</span></div>
+			<div class="q" role="listitem"><span>Contagious Enthusiasm</span></div>
+			<div class="q" role="listitem"><span>Everything Is Awesome</span></div>
+			<div class="q" role="listitem"><span>Even Wrong Is Right</span></div>
+			<div class="q" role="listitem"><span>Jubilant Potpourri</span></div>
+			<div class="q" role="listitem"><span>You Are Killing It</span></div>
 		</div>
-		<div class="row">
-			<a href="#" id="yes" data-audio-source="yes.mp3" data-video-source="yes.mp4">
+		<div class="row" role="list" aria-label="$400 answers">
+			<a href="#" role="button" aria-label="Play: Yes" data-audio-source="yes.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$400</span></h5>
 					<h4 class="back"><span>Yes</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="yess.mp3" data-video-source="yess.mp4">
+			<a href="#" role="button" aria-label="Play: Yassss" data-audio-source="yess.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$400</span></h5>
 					<h4 class="back"><span>Yassss</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="correct.mp3" data-video-source="correct.mp4">
+			<a href="#" role="button" aria-label="Play: Correct" data-audio-source="correct.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$400</span></h5>
 					<h4 class="back"><span>Correct</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="youre-so-close.mp3" data-video-source="youre-so-close.mp4">
+			<a href="#" role="button" aria-label="Play: Oh you're so close" data-audio-source="youre-so-close.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$400</span></h5>
 					<h4 class="back"><span>Oh you're so close</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="back-on-the-plus-side.mp3" data-video-source="back-on-the-plus-side.mp4">
+			<a href="#" role="button" aria-label="Play: You are back on the plus side" data-audio-source="back-on-the-plus-side.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$400</span></h5>
 					<h4 class="back"><span>You are back on the plus side</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="be-more-specific-thats-it-yes.mp3" data-video-source="be-more-specific-thats-it-yes.mp4">
+			<a href="#" role="button" aria-label="Play: Be more specific? That's it!" data-audio-source="be-more-specific-thats-it-yes.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$400</span></h5>
 					<h4 class="back"><span>Be more specific? That's it!</span></h4>
 				</div>
 			</a>
 		</div>
-		<div class="row">
-			<a data-audio-source="good-for-you.mp3" data-video-source="good-for-you.mp4">
+		<div class="row" role="list" aria-label="$800 answers">
+			<a href="#" role="button" aria-label="Play: Good for you" data-audio-source="good-for-you.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$800</span></h5>
 					<h4 class="back"><span>Good for you</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="right-you-are-enjoy-the-moment.mp3" data-video-source="right-you-are-enjoy-the-moment.mp4">
+			<a href="#" role="button" aria-label="Play: Enjoy the moment!" data-audio-source="right-you-are-enjoy-the-moment.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$800</span></h5>
 					<h4 class="back"><span>Enjoy the moment!</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="you-are-right.mp3" data-video-source="you-are-right.mp4">
+			<a href="#" role="button" aria-label="Play: You are right" data-audio-source="you-are-right.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$800</span></h5>
 					<h4 class="back"><span>You are right</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="boo-hiss.mp3" data-video-source="boo-hiss.mp4">
+			<a href="#" role="button" aria-label="Play: Oh, boo hiss" data-audio-source="boo-hiss.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$800</span></h5>
 					<h4 class="back"><span>Oh, boo hiss</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="well-accept-that-yes.mp3" data-video-source="well-accept-that-yes.mp4">
+			<a href="#" role="button" aria-label="Play: We'll accept that" data-audio-source="well-accept-that-yes.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$800</span></h5>
 					<h4 class="back"><span>We'll accept that</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="you-picked-the-right-one-yeah.mp3" data-video-source="you-picked-the-right-one-yeah.mp4">
+			<a href="#" role="button" aria-label="Play: You picked the right one" data-audio-source="you-picked-the-right-one-yeah.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$800</span></h5>
 					<h4 class="back"><span>You picked the right one</span></h4>
 				</div>
 			</a>
 		</div>
-		<div class="row">
-			<a data-audio-source="youre-on-the-board.mp3" data-video-source="youre-on-the-board.mp4">
+		<div class="row" role="list" aria-label="$1200 answers">
+			<a href="#" role="button" aria-label="Play: You're on the board" data-audio-source="youre-on-the-board.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$1200</span></h5>
 					<h4 class="back"><span>You're on the board</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="thats-it.mp3" data-video-source="thats-it.mp4">
+			<a href="#" role="button" aria-label="Play: That's it" data-audio-source="thats-it.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$1200</span></h5>
 					<h4 class="back"><span>That's it</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="say-it-again-yes.mp3" data-video-source="say-it-again-yes.mp4">
+			<a href="#" role="button" aria-label="Play: Say it again...Yes!" data-audio-source="say-it-again-yes.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$1200</span></h5>
 					<h4 class="back"><span>Say it again...Yes!</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="not-a-bad-guess.mp3" data-video-source="not-a-bad-guess.mp4">
+			<a href="#" role="button" aria-label="Play: Not a bad guess" data-audio-source="not-a-bad-guess.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$1200</span></h5>
 					<h4 class="back"><span>Not a bad guess</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="thats-the-14-letter-word.mp3" data-video-source="thats-the-14-letter-word.mp4">
+			<a href="#" role="button" aria-label="Play: That's the 14-letter word" data-audio-source="thats-the-14-letter-word.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$1200</span></h5>
 					<h4 class="back"><span>That's the 14-letter word</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="youve-just-doubled-your-score.mp3" data-video-source="youve-just-doubled-your-score.mp4">
+			<a href="#" role="button" aria-label="Play: You've just doubled your score" data-audio-source="youve-just-doubled-your-score.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$1200</span></h5>
 					<h4 class="back"><span>You've just doubled your score</span></h4>
 				</div>
 			</a>
 		</div>
-		<div class="row">
-			<a data-audio-source="right-you-are.mp3" data-video-source="right-you-are.mp4">
+		<div class="row" role="list" aria-label="$1600 answers">
+			<a href="#" role="button" aria-label="Play: Right you are" data-audio-source="right-you-are.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$1600</span></h5>
 					<h4 class="back"><span>Right you are</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="correct-again.mp3" data-video-source="correct-again.mp4">
+			<a href="#" role="button" aria-label="Play: Correct again" data-audio-source="correct-again.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$1600</span></h5>
 					<h4 class="back"><span>Correct again</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="you-got-it.mp3" data-video-source="you-got-it.mp4">
+			<a href="#" role="button" aria-label="Play: You got it!" data-audio-source="you-got-it.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$1600</span></h5>
 					<h4 class="back"><span>You got it!</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="thats-it-its-a-common-mistake.mp3" data-video-source="thats-it-its-a-common-mistake.mp4">
+			<a href="#" role="button" aria-label="Play: That's a common mistake" data-audio-source="thats-it-its-a-common-mistake.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$1600</span></h5>
 					<h4 class="back"><span>That's a common mistake</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="newton-watson.mp3" data-video-source="newton-watson.mp4">
+			<a href="#" role="button" aria-label="Play: Watson: Who Is the church lady?" data-audio-source="newton-watson.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$1600</span></h5>
 					<h4 class="back"><span>Watson: Who Is the church lady?</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="respect-correct.mp3" data-video-source="respect-correct.mp4">
+			<a href="#" role="button" aria-label="Play: R-E-S-P-E-C-T" data-audio-source="respect-correct.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$1600</span></h5>
 					<h4 class="back"><span>R-E-S-P-E-C-T</span></h4>
 				</div>
 			</a>
 		</div>
-		<div class="row">
-			<a data-audio-source="thats-the-word.mp3" data-video-source="thats-the-word.mp4">
+		<div class="row" role="list" aria-label="$2000 answers">
+			<a href="#" role="button" aria-label="Play: That's the word" data-audio-source="thats-the-word.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$2000</span></h5>
 					<h4 class="back"><span>That's the word</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="good-less-than-a-minute-now.mp3" data-video-source="good-less-than-a-minute-now.mp4">
+			<a href="#" role="button" aria-label="Play: Good, less than a minute now" data-audio-source="good-less-than-a-minute-now.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$2000</span></h5>
 					<h4 class="back"><span>Good, less than a minute now</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="yes-you-have-now-moved-into-the-lead.mp3" data-video-source="yes-you-have-now-moved-into-the-lead.mp4">
+			<a href="#" role="button" aria-label="Play: You have now moved into the lead" data-audio-source="yes-you-have-now-moved-into-the-lead.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$2000</span></h5>
 					<h4 class="back"><span>You have now moved into the lead</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="ha-ha-ha-no.mp3" data-video-source="ha-ha-ha-no.mp4">
+			<a href="#" role="button" aria-label="Play: Ha, ha, ha, ha, ha, ha... no" data-audio-source="ha-ha-ha-no.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$2000</span></h5>
 					<h4 class="back"><span>Ha, ha, ha, ha, ha, ha... no</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="rick-astley.mp3" data-video-source="rick-astley.mp4">
+			<a href="#" role="button" aria-label="Play: Rickrolled" data-audio-source="rick-astley.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$2000</span></h5>
 					<h4 class="back"><span>Rickrolled</span></h4>
 				</div>
 			</a>
-			<a href="#" data-audio-source="you-got-it-that-was-a-tough-one.mp3" data-video-source="you-got-it-that-was-a-tough-one.mp4">
+			<a href="#" role="button" aria-label="Play: That was a tough one" data-audio-source="you-got-it-that-was-a-tough-one.mp3">
 				<div class="q card-grid">
 					<h5 class="front"><span>$2000</span></h5>
 					<h4 class="back"><span>That was a tough one</span></h4>
@@ -364,36 +539,100 @@ $(document).ready(function() {
 	</div>
 </article>
 <footer>
-	<h2><a href="#" data-audio-source="j-woosh.wav" class="easter-egg">this homage</a> to alex trebek was created by <a href="https://twitter.com/fimoculous/" target="_blank">rex sorgatz</a> for <a href="https://www.tvinsider.com/">tv insider</a></h2>
+	<p><a href="#" data-audio-source="j-woosh.wav" class="easter-egg" role="button" aria-label="Play whoosh sound">this homage</a> to alex trebek was created by <a href="https://twitter.com/fimoculous/" target="_blank" rel="noopener noreferrer">rex sorgatz</a></p>
 </footer>
-<!--
-<div id="trebek"><a href="#" class="easter-egg" data-audio-source="black-jeopardy-snl.mp3"><img alt="trebek" src="/trebek-affirmation-soundboard/trebek.png" /></a><span><a target="_blank" href="https://www.youtube.com/watch?v=O7VaXlMvAvk">Source: SNL</a></span></div>
--->
-<div id="startup">
-    <h2>PRO TIP</h2>
-    <div><img alt="trebek" src="https://www.tvinsider.com/wp-content/themes/tv/trebek-affirmations/trebek.png" align="right" /></div>
-    <p><strong>Wanna share your favorite Trebekian affirmation?</strong></p>
-    <p>Just <strong>double-click</strong> on any box to download a sharable clip of that response.</p>
-</div>
 
-
-<!-- Google Analytics - G4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DB9HERH5PW"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/flip@1.1.2/dist/jquery.flip.min.js"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-DB9HERH5PW');
-</script>
+(function() {
+	'use strict';
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-57043800-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	var currentAudio = null;
 
-  gtag('config', 'UA-57043800-1');
+	function playAudio(audioSource) {
+		if (!audioSource) return;
+
+		if (currentAudio) {
+			currentAudio.pause();
+			currentAudio = null;
+		}
+
+		currentAudio = new Audio(audioSource);
+		currentAudio.play().catch(function(e) {
+			console.log('Audio playback failed:', e);
+		});
+	}
+
+	function handleSoundClick(e) {
+		e.preventDefault();
+		var audioSource = this.dataset.audioSource;
+		playAudio(audioSource);
+	}
+
+	function handleKeydown(e) {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			var audioSource = this.dataset.audioSource;
+			playAudio(audioSource);
+		}
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var soundButtons = document.querySelectorAll('#board a, .easter-egg');
+
+		soundButtons.forEach(function(btn) {
+			btn.addEventListener('click', handleSoundClick);
+			btn.addEventListener('keydown', handleKeydown);
+		});
+
+		// Card flip functionality (requires jQuery Flip plugin)
+		if (typeof jQuery !== 'undefined' && typeof jQuery.fn.flip !== 'undefined') {
+			var $ = jQuery;
+			var flipTimeout = null;
+
+			$(".card-grid").flip({
+				trigger: 'click',
+				speed: 100
+			});
+
+			$(".card-grid").on('flip:done', function() {
+				if (flipTimeout) {
+					clearTimeout(flipTimeout);
+				}
+				flipTimeout = setTimeout(function() {
+					$(".card-grid").flip(false);
+				}, 4000);
+			});
+		}
+
+		// Random appear animation for tiles
+		var tiles = document.querySelectorAll('.row:not(.cat) a');
+		var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		for (var i = 0; i < tiles.length; i++) {
+			if (prefersReducedMotion) {
+				tiles[i].style.opacity = '1';
+			} else {
+				(function(tile) {
+					var delay = Math.random() * 2000;
+					setTimeout(function() {
+						tile.style.opacity = '1';
+					}, delay);
+				})(tiles[i]);
+			}
+		}
+	});
+
+	// Register service worker for PWA
+	if ('serviceWorker' in navigator) {
+		window.addEventListener('load', function() {
+			navigator.serviceWorker.register('sw.js').catch(function(e) {
+				console.log('Service worker registration failed:', e);
+			});
+		});
+	}
+})();
 </script>
 
 </body>
