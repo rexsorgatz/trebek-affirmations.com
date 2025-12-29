@@ -63,13 +63,27 @@
 <link rel="apple-touch-icon-precomposed" href="jeopardy-icon.png" />
 <link rel="icon" type="image/png" href="jeopardy-icon.png" />
 <link href="jeopardy.png" rel="icon" type="image/png" sizes="32x32" />
+<link rel="preload" href="swiss-911-compressed-regular.otf" as="font" type="font/otf" crossorigin />
 
 <style>
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
 :root {
 	--color-jeopardy-blue: #060ce9;
 	--color-gold: #fad298;
 	--color-white: #fff;
 	--color-black: #000;
+	--color-bg-fallback: #050a4d;
 	--color-text-shadow: #000;
 	--font-jeopardy: 'Swiss 911', Helvetica, Arial, Verdana, sans-serif;
 	--font-system: Helvetica, Arial, Verdana, sans-serif;
@@ -96,7 +110,7 @@ body {
 	padding: 0;
 	background: url("jeopardy-bg.jpg") no-repeat center center fixed;
 	background-size: cover;
-	background-color: var(--color-black);
+	background-color: var(--color-bg-fallback);
 	font-family: var(--font-jeopardy);
 	text-transform: uppercase;
 }
@@ -112,7 +126,9 @@ body {
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
 	gap: var(--tile-gap);
-	margin-bottom: var(--tile-gap);
+	margin: 0 0 var(--tile-gap) 0;
+	padding: 0;
+	list-style: none;
 }
 
 .row a {
@@ -336,207 +352,271 @@ h4, h5 {
 	<h1>The Trebek Affirmation <a class="easter-egg" data-audio-source="board-fill.mp3" href="#" role="button" aria-label="Play board fill sound">Soundboard</a></h1>
 	<h3>for those distressing moments when you could use <a class="easter-egg" data-audio-source="daily-double.mp3" href="#" role="button" aria-label="Play daily double sound">an audible nudge of encouragement</a></h3>
 </header>
+<p id="play-status" class="sr-only" aria-live="polite">Ready to play.</p>
 <article id="board" role="region" aria-label="Soundboard">
-	<div id="grid-container">
-		<div class="row cat" role="list" aria-label="Categories">
-			<div class="q" role="listitem"><span>Good<br/>Vibes</span></div>
-			<div class="q" role="listitem"><span>Contagious Enthusiasm</span></div>
-			<div class="q" role="listitem"><span>Everything Is Awesome</span></div>
-			<div class="q" role="listitem"><span>Even Wrong Is Right</span></div>
-			<div class="q" role="listitem"><span>Jubilant Potpourri</span></div>
-			<div class="q" role="listitem"><span>You Are Killing It</span></div>
+	<section aria-labelledby="soundboard-heading">
+		<h2 id="soundboard-heading" class="sr-only">Soundboard grid</h2>
+		<div id="grid-container">
+			<ul class="row cat" aria-label="Categories">
+				<li><div class="q"><span>Good<br/>Vibes</span></div></li>
+				<li><div class="q"><span>Contagious Enthusiasm</span></div></li>
+				<li><div class="q"><span>Everything Is Awesome</span></div></li>
+				<li><div class="q"><span>Even Wrong Is Right</span></div></li>
+				<li><div class="q"><span>Jubilant Potpourri</span></div></li>
+				<li><div class="q"><span>You Are Killing It</span></div></li>
+			</ul>
+			<ul class="row" aria-label="$400 answers">
+				<li>
+					<a href="#" role="button" aria-label="Play: Yes" data-audio-source="yes.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$400</span></h5>
+							<h4 class="back"><span>Yes</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: Yassss" data-audio-source="yess.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$400</span></h5>
+							<h4 class="back"><span>Yassss</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: Correct" data-audio-source="correct.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$400</span></h5>
+							<h4 class="back"><span>Correct</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: Oh you're so close" data-audio-source="youre-so-close.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$400</span></h5>
+							<h4 class="back"><span>Oh you're so close</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: You are back on the plus side" data-audio-source="back-on-the-plus-side.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$400</span></h5>
+							<h4 class="back"><span>You are back on the plus side</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: Be more specific? That's it!" data-audio-source="be-more-specific-thats-it-yes.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$400</span></h5>
+							<h4 class="back"><span>Be more specific? That's it!</span></h4>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="row" aria-label="$800 answers">
+				<li>
+					<a href="#" role="button" aria-label="Play: Good for you" data-audio-source="good-for-you.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$800</span></h5>
+							<h4 class="back"><span>Good for you</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: Enjoy the moment!" data-audio-source="right-you-are-enjoy-the-moment.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$800</span></h5>
+							<h4 class="back"><span>Enjoy the moment!</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: You are right" data-audio-source="you-are-right.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$800</span></h5>
+							<h4 class="back"><span>You are right</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: Oh, boo hiss" data-audio-source="boo-hiss.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$800</span></h5>
+							<h4 class="back"><span>Oh, boo hiss</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: We'll accept that" data-audio-source="well-accept-that-yes.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$800</span></h5>
+							<h4 class="back"><span>We'll accept that</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: You picked the right one" data-audio-source="you-picked-the-right-one-yeah.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$800</span></h5>
+							<h4 class="back"><span>You picked the right one</span></h4>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="row" aria-label="$1200 answers">
+				<li>
+					<a href="#" role="button" aria-label="Play: You're on the board" data-audio-source="youre-on-the-board.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$1200</span></h5>
+							<h4 class="back"><span>You're on the board</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: That's it" data-audio-source="thats-it.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$1200</span></h5>
+							<h4 class="back"><span>That's it</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: Say it again...Yes!" data-audio-source="say-it-again-yes.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$1200</span></h5>
+							<h4 class="back"><span>Say it again...Yes!</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: Not a bad guess" data-audio-source="not-a-bad-guess.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$1200</span></h5>
+							<h4 class="back"><span>Not a bad guess</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: That's the 14-letter word" data-audio-source="thats-the-14-letter-word.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$1200</span></h5>
+							<h4 class="back"><span>That's the 14-letter word</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: You've just doubled your score" data-audio-source="youve-just-doubled-your-score.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$1200</span></h5>
+							<h4 class="back"><span>You've just doubled your score</span></h4>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="row" aria-label="$1600 answers">
+				<li>
+					<a href="#" role="button" aria-label="Play: Right you are" data-audio-source="right-you-are.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$1600</span></h5>
+							<h4 class="back"><span>Right you are</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: Correct again" data-audio-source="correct-again.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$1600</span></h5>
+							<h4 class="back"><span>Correct again</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: You got it!" data-audio-source="you-got-it.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$1600</span></h5>
+							<h4 class="back"><span>You got it!</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: That's a common mistake" data-audio-source="thats-it-its-a-common-mistake.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$1600</span></h5>
+							<h4 class="back"><span>That's a common mistake</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: Watson: Who Is the church lady?" data-audio-source="newton-watson.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$1600</span></h5>
+							<h4 class="back"><span>Watson: Who Is the church lady?</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: R-E-S-P-E-C-T" data-audio-source="respect-correct.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$1600</span></h5>
+							<h4 class="back"><span>R-E-S-P-E-C-T</span></h4>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="row" aria-label="$2000 answers">
+				<li>
+					<a href="#" role="button" aria-label="Play: That's the word" data-audio-source="thats-the-word.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$2000</span></h5>
+							<h4 class="back"><span>That's the word</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: Good, less than a minute now" data-audio-source="good-less-than-a-minute-now.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$2000</span></h5>
+							<h4 class="back"><span>Good, less than a minute now</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: You have now moved into the lead" data-audio-source="yes-you-have-now-moved-into-the-lead.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$2000</span></h5>
+							<h4 class="back"><span>You have now moved into the lead</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: Ha, ha, ha, ha, ha, ha... no" data-audio-source="ha-ha-ha-no.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$2000</span></h5>
+							<h4 class="back"><span>Ha, ha, ha, ha, ha, ha... no</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: Rickrolled" data-audio-source="rick-astley.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$2000</span></h5>
+							<h4 class="back"><span>Rickrolled</span></h4>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" role="button" aria-label="Play: That was a tough one" data-audio-source="you-got-it-that-was-a-tough-one.mp3">
+						<div class="q card-grid">
+							<h5 class="front"><span>$2000</span></h5>
+							<h4 class="back"><span>That was a tough one</span></h4>
+						</div>
+					</a>
+				</li>
+			</ul>
 		</div>
-		<div class="row" role="list" aria-label="$400 answers">
-			<a href="#" role="button" aria-label="Play: Yes" data-audio-source="yes.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$400</span></h5>
-					<h4 class="back"><span>Yes</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: Yassss" data-audio-source="yess.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$400</span></h5>
-					<h4 class="back"><span>Yassss</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: Correct" data-audio-source="correct.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$400</span></h5>
-					<h4 class="back"><span>Correct</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: Oh you're so close" data-audio-source="youre-so-close.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$400</span></h5>
-					<h4 class="back"><span>Oh you're so close</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: You are back on the plus side" data-audio-source="back-on-the-plus-side.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$400</span></h5>
-					<h4 class="back"><span>You are back on the plus side</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: Be more specific? That's it!" data-audio-source="be-more-specific-thats-it-yes.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$400</span></h5>
-					<h4 class="back"><span>Be more specific? That's it!</span></h4>
-				</div>
-			</a>
-		</div>
-		<div class="row" role="list" aria-label="$800 answers">
-			<a href="#" role="button" aria-label="Play: Good for you" data-audio-source="good-for-you.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$800</span></h5>
-					<h4 class="back"><span>Good for you</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: Enjoy the moment!" data-audio-source="right-you-are-enjoy-the-moment.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$800</span></h5>
-					<h4 class="back"><span>Enjoy the moment!</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: You are right" data-audio-source="you-are-right.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$800</span></h5>
-					<h4 class="back"><span>You are right</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: Oh, boo hiss" data-audio-source="boo-hiss.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$800</span></h5>
-					<h4 class="back"><span>Oh, boo hiss</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: We'll accept that" data-audio-source="well-accept-that-yes.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$800</span></h5>
-					<h4 class="back"><span>We'll accept that</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: You picked the right one" data-audio-source="you-picked-the-right-one-yeah.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$800</span></h5>
-					<h4 class="back"><span>You picked the right one</span></h4>
-				</div>
-			</a>
-		</div>
-		<div class="row" role="list" aria-label="$1200 answers">
-			<a href="#" role="button" aria-label="Play: You're on the board" data-audio-source="youre-on-the-board.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$1200</span></h5>
-					<h4 class="back"><span>You're on the board</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: That's it" data-audio-source="thats-it.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$1200</span></h5>
-					<h4 class="back"><span>That's it</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: Say it again...Yes!" data-audio-source="say-it-again-yes.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$1200</span></h5>
-					<h4 class="back"><span>Say it again...Yes!</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: Not a bad guess" data-audio-source="not-a-bad-guess.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$1200</span></h5>
-					<h4 class="back"><span>Not a bad guess</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: That's the 14-letter word" data-audio-source="thats-the-14-letter-word.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$1200</span></h5>
-					<h4 class="back"><span>That's the 14-letter word</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: You've just doubled your score" data-audio-source="youve-just-doubled-your-score.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$1200</span></h5>
-					<h4 class="back"><span>You've just doubled your score</span></h4>
-				</div>
-			</a>
-		</div>
-		<div class="row" role="list" aria-label="$1600 answers">
-			<a href="#" role="button" aria-label="Play: Right you are" data-audio-source="right-you-are.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$1600</span></h5>
-					<h4 class="back"><span>Right you are</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: Correct again" data-audio-source="correct-again.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$1600</span></h5>
-					<h4 class="back"><span>Correct again</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: You got it!" data-audio-source="you-got-it.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$1600</span></h5>
-					<h4 class="back"><span>You got it!</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: That's a common mistake" data-audio-source="thats-it-its-a-common-mistake.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$1600</span></h5>
-					<h4 class="back"><span>That's a common mistake</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: Watson: Who Is the church lady?" data-audio-source="newton-watson.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$1600</span></h5>
-					<h4 class="back"><span>Watson: Who Is the church lady?</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: R-E-S-P-E-C-T" data-audio-source="respect-correct.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$1600</span></h5>
-					<h4 class="back"><span>R-E-S-P-E-C-T</span></h4>
-				</div>
-			</a>
-		</div>
-		<div class="row" role="list" aria-label="$2000 answers">
-			<a href="#" role="button" aria-label="Play: That's the word" data-audio-source="thats-the-word.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$2000</span></h5>
-					<h4 class="back"><span>That's the word</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: Good, less than a minute now" data-audio-source="good-less-than-a-minute-now.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$2000</span></h5>
-					<h4 class="back"><span>Good, less than a minute now</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: You have now moved into the lead" data-audio-source="yes-you-have-now-moved-into-the-lead.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$2000</span></h5>
-					<h4 class="back"><span>You have now moved into the lead</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: Ha, ha, ha, ha, ha, ha... no" data-audio-source="ha-ha-ha-no.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$2000</span></h5>
-					<h4 class="back"><span>Ha, ha, ha, ha, ha, ha... no</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: Rickrolled" data-audio-source="rick-astley.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$2000</span></h5>
-					<h4 class="back"><span>Rickrolled</span></h4>
-				</div>
-			</a>
-			<a href="#" role="button" aria-label="Play: That was a tough one" data-audio-source="you-got-it-that-was-a-tough-one.mp3">
-				<div class="q card-grid">
-					<h5 class="front"><span>$2000</span></h5>
-					<h4 class="back"><span>That was a tough one</span></h4>
-				</div>
-			</a>
-		</div>
-	</div>
+	</section>
 </article>
 <footer>
 	<p><a href="#" data-audio-source="j-woosh.wav" class="easter-egg" role="button" aria-label="Play whoosh sound">this homage</a> to alex trebek was created by <a href="https://twitter.com/fimoculous/" target="_blank" rel="noopener noreferrer">rex sorgatz</a></p>
@@ -549,8 +629,9 @@ h4, h5 {
 	'use strict';
 
 	var currentAudio = null;
+	var statusEl = document.getElementById('play-status');
 
-	function playAudio(audioSource) {
+	function playAudio(audioSource, label) {
 		if (!audioSource) return;
 
 		if (currentAudio) {
@@ -559,7 +640,14 @@ h4, h5 {
 		}
 
 		currentAudio = new Audio(audioSource);
+		if (statusEl) {
+			var friendlyLabel = label ? label.replace(/^Play:\s*/i, '').trim() : audioSource;
+			statusEl.textContent = 'Playing: ' + friendlyLabel;
+		}
 		currentAudio.play().catch(function(e) {
+			if (statusEl) {
+				statusEl.textContent = 'Audio playback failed';
+			}
 			console.log('Audio playback failed:', e);
 		});
 	}
@@ -567,14 +655,16 @@ h4, h5 {
 	function handleSoundClick(e) {
 		e.preventDefault();
 		var audioSource = this.dataset.audioSource;
-		playAudio(audioSource);
+		var label = this.getAttribute('aria-label');
+		playAudio(audioSource, label);
 	}
 
 	function handleKeydown(e) {
 		if (e.key === 'Enter' || e.key === ' ') {
 			e.preventDefault();
 			var audioSource = this.dataset.audioSource;
-			playAudio(audioSource);
+			var label = this.getAttribute('aria-label');
+			playAudio(audioSource, label);
 		}
 	}
 
