@@ -8,7 +8,7 @@ const STATIC_ASSETS = [
   '/jeopardy-icon.png',
   '/jeopardy.png',
   '/jeopardy-trebek-soundboard.jpg',
-  '/swiss-911-compressed-regular.otf'
+  '/swiss-911-compressed-regular.woff2'
 ];
 
 const AUDIO_FILES = [
@@ -95,7 +95,7 @@ self.addEventListener('fetch', (event) => {
   // Cache images and fonts
   if (url.pathname.endsWith('.jpg') ||
       url.pathname.endsWith('.png') ||
-      url.pathname.endsWith('.otf')) {
+      url.pathname.endsWith('.woff2')) {
     event.respondWith(
       caches.open(CACHE_NAME).then((cache) => {
         return cache.match(event.request).then((cachedResponse) => {
